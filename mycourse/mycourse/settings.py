@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses.apps.CoursesConfig',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'rest_framework'
 ]
 
 AUTH_USER_MODEL = 'courses.User'
@@ -85,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'myCoursedb',#DB name is defined
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': 'Admin@123',
         'HOST': '' # mặc định localhost
     }
 }
