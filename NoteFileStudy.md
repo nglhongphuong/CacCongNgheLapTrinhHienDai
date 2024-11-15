@@ -187,6 +187,11 @@ class name_what?
           }
 ```
 ### 7. libraries after coding
+- 'Install' :
+```
+pip install -r requirements.txt
+```
+- 'Update':
 ```
 py pip freeze > requirement.txt
 ```
