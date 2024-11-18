@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'ckeditor',
     'ckeditor_uploader',
-    'rest_framework'
+    'rest_framework',
+    'drf_yasg'
 ]
 
 AUTH_USER_MODEL = 'courses.User'
@@ -84,9 +85,9 @@ WSGI_APPLICATION = 'mycourse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myCoursedb',#DB name is defined
+        'NAME': 'mycoursedb',#DB name is defined
         'USER': 'root',
-        'PASSWORD': 'Admin@123',
+        'PASSWORD': '12345',
         'HOST': '' # mặc định localhost
     }
 }

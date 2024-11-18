@@ -5,14 +5,6 @@ from ckeditor.fields import RichTextField
 class User(AbstractUser):
     pass 
 # Create your models here.
-
-class   Category(models.Model):
-    name = models.CharField(max_length=50,unique=True)
-
-    def __str__(self):
-        return self.name
-
-
 class BaseMode(models.Model):
     active = models.BooleanField(default=True)
     create_date = models.DateTimeField(auto_now_add= True, null=True)
@@ -21,7 +13,15 @@ class BaseMode(models.Model):
         abstract = True
         ordering = ["id"]
 
-class Course(models.Model):
+
+class   Category(BaseMode):
+    name = models.CharField(max_length=50,unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Course(BaseMode):
     subject = models.CharField(max_length=50, null=False)
     description = models.TextField()
     image = models.ImageField(upload_to="courses/%Y/%m/")
