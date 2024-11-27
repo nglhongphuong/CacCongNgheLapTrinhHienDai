@@ -1,0 +1,46 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+<h1>Thong ke so khoa hoc theo danh muc</h1>
+<ul>
+    {% for s in stats %}
+    <li><strong>{{s.name}}</strong> {{s.count}}</li>
+    {% endfor %}
+</ul>
+<div style="width: 60%">
+  <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+   let data = []
+   let labels = []
+   {% for s in stats %}
+      labels.push('{{ s.name }}');
+      data.push({{ s.count }})
+   {% endfor %}
+
+  const ctx = document.getElementById('myChart');
+
+  window.onload = function() {
+   new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: '# of Votes',
+        data: data,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  }
+</script>
+{% endblock %}
